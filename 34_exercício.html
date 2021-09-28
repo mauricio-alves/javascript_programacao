@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <style>
+      .banner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, .8);
+        display: none;
+      }
+
+      .banner__close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <div class="banner">
+      <h2>Banner Irritante</h2>
+      <button class="banner__close">X</button>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum iusto eos debitis numquam nisi deleniti sit quas vel sunt. Ad natus illo earum maiores iusto sint dolore asperiores alias maxime?</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae error sint animi sed molestiae fuga, aliquam cumque ipsum reprehenderit exercitationem? Voluptates velit ut maiores at veritatis temporibus tempora hic quam?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum qui accusamus ipsum reiciendis. Incidunt expedita ipsam facilis veniam id laudantium aliquam. Laboriosam natus suscipit deleniti impedit id molestias minima nesciunt.</p>
+    </div>
+
+    <script>
+      // Problema: Fazer um pop-up que apareça na interface do usuário dps de 5 segundos e que se feche automaticamente dps de 5 segundos.
+
+      (function() {
+        var $banner = document.querySelector(".banner");
+        var $bannerBtn = document.querySelector(".banner__close");
+
+        $bannerBtn.addEventListener("click", escondeBanner);
+
+        var intervaloEsconde = null;
+
+        function mostraBanner() {
+          $banner.style.display = "block";
+          // colocar o timeout do banner aqui dentro evita o atraso de execução caso tenham muitas ações na fila, evitando por exemplo que o banner fique 1 segundo visível após ser aberto ao invés dos 5 segundos determinados
+          intervaloEsconde = setTimeout(escondeBanner, 10000);
+        }
+        function escondeBanner() {
+          $bannerBtn.removeEventListener("click", escondeBanner);
+          $banner.parentNode.removeChild($banner);
+          clearTimeout(intervaloEsconde);
+        }
+
+        setTimeout(mostraBanner, 5000);
+      })()
+    </script>
+  </body>
+</html>

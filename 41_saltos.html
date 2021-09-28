@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+
+    <main class="content">
+      <h1>Curso JavaScript Básico</h1>
+    </main>
+
+    <script>
+      // Controle de fluxos (saltos) = return, break e continue
+
+      // return = interrompe a função
+      // break = interrompe o loop, porém não a função (muito utilizado no bloco switch)
+      // continue = pula a condição do loop, mas não interrompe a função 
+
+      function testeSaltos() {
+        
+        for(var i = 0; i < 10; i++) {
+          console.log(i);
+          if(i === 5) {
+            return; // break  // continue
+          }
+        }
+        console.log("fim do loop");
+      }
+      var teste = testeSaltos();
+      console.log(teste);
+
+
+      var n = 10;
+      switch (n) {
+        case 0:
+          console.log("switch 0");
+          break;
+        case 10:
+          console.log("switch 10");
+          break;
+        case 20:
+          console.log("switch 20");
+          break;
+        case 30:
+          console.log("switch 30");
+          break;
+        default:
+          console.log("switch default");
+      }
+    </script>
+  </body>
+</html>

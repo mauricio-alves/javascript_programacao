@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <div></div>
+
+    <script>
+      // Temporizadores executam ou removem ações em determinado tempo (não são nativos do JS, mas do browser, ou seja, window)
+      var n = 0;
+      function somaUm() {
+        console.log("n", ++n);
+
+        // para stopar o setInterval lá debaixo (clearInterval)
+        if(n >= 5) {
+          clearInterval(intervalo);
+        }
+      }
+
+      // setTimeout(fn, ms) vai programar que uma ação seja executada dps do tempo determinado apenas 1 vez
+      var timeout = setTimeout(somaUm, 1000);
+      alert(timeout);
+
+      // setInterval(fn, ms) vai programar que uma ação seja executada continuamente dps do intervalo de tempo determinado 
+      var intervalo = setInterval(somaUm, 5000);
+      console.log(intervalo);
+
+      var str = "";
+      var d = document.querySelector("div");
+      var timeoutTeste = setTimeout(function() {
+        for(var i = 0; i <1000; i++) {
+          str += "i: " + i + " -- ";
+          d.textContent += str;
+        }
+      }, 3000);
+
+      // importante: o fato do JS ser thread única (só executa um processo por vez), não significa necessariamente que as ações serão executadas no tempo determinado, pois primeiro se processa o código principal e cada evento nele (ex: click, setInterval...) entra pra fila de execução. Então quanto mais ações estiverem aguardando serem executadas, maior o tempo (ms) necessário.
+    </script>
+  </body>
+</html>

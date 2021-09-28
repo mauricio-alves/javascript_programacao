@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi voluptatum.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi voluptatum.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi voluptatum.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi voluptatum.</p>
+
+    <script>
+      // trocar o texto da página, simulando um hacker
+      (function() {
+        "use strict"
+        var paragrafos = document.querySelectorAll("p");
+        var i = 0;
+        while(paragrafos[i]) {
+          paragrafos[i].textContent = i + "Este site foi hackeado por Mauricio";
+          i++;
+        }
+      })()
+    </script>
+  </body>
+</html>

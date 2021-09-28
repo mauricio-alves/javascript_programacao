@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <div>
+      <input type="text" id="cronometro">
+      <button id="iniciar">Iniciar</button>
+      <button id="pausar">Pausar</button>
+      <button id="resetar">Resetar</button>
+    </div>
+
+    <script>
+      // Desafio: Mostrar cronômetro. Faça uma interface contendo um input text e três botões. Ao clicar no primeiro deve iniciar um cronômetro. O segundo deve pausar ou continuar. O terceiro deve resetar o cronômetro.
+
+      (function () {
+        var $cronometro = document.querySelector("#cronometro");
+        var $iniciar = document.querySelector("#iniciar");
+        var $pausar = document.querySelector("#pausar");
+        var $resetar = document.querySelector("#resetar");
+
+        $iniciar.addEventListener("click", iniciar);
+        $pausar.addEventListener("click", pausar);
+        $resetar.addEventListener("click", resetar);
+
+        var intervalo = null;
+        var timestampClickIniciar = 0;
+        var timestampClickPausar = 0;
+        var timestampTempoDecorrido = 0;
+        var rodando = false;
+
+        function  iniciar() {
+          if(rodando) return;
+          resetar();
+          timestampClickIniciar = Date.now();
+          iniciarCronometro();
+          rodando = true;
+        }
+
+        function iniciarCronometro(tempoDecorrido) {
+          var _ms = tempoDecorrido || 0;
+          intervalo = setInterval(function() {
+            var timestampAgora = Date.now();
+            var diferenca = timestampAgora - timestampClickIniciar;
+            $cronometro.value = formataTimeStamp(diferenca + _ms);
+          }, 100)
+        }
+
+        function formataTimeStamp(ms) {
+          /* essa função vai precisar me retornar tempo da seguinte forma:
+          ms = 900 => 900
+          ms = 1500 => 1:50
+          ms = 59000 => 59:000
+          ms = 61500 => 1:1:500 
+          */
+         const MINUTO = 60 * 1000;
+
+          if(ms < 1000) {          // ms = milisegundo
+            return ms;
+          } else if(ms < MINUTO) {              // exemplo: 30500
+            var segundo = parseInt(ms / 1000);  // 30
+            var centesimo = ms - (segundo * 1000)  // 30500 - (30000)  => 500
+            return segundo + ":" + centesimo;
+          } else {
+            var minuto = parseInt(ms / MINUTO);
+
+            // função recursiva (função que chama ela mesma):
+            return minuto + ":" + formataTimeStamp(ms - minuto * MINUTO);
+
+            // a linha de código acima é uma refatoração do código comentado abaixo:
+            /*var segundo = parseInt(ms / 1000 - (minuto * 60));
+            var centesimo = parseInt(ms - (segundo * 1000) - (minuto * MINUTO));
+            return minuto + ":" + segundo + ":" + centesimo;*/
+          }
+        }
+
+        function pausar() {
+          if(!$cronometro.value) return;
+          if(rodando) {
+            // rodando = false;
+            clearInterval(intervalo);
+            timestampClickPausar = Date.now();
+            timestampTempoDecorrido += (timestampClickPausar - timestampClickIniciar);
+          } else {
+            // rodando = true;
+            timestampClickIniciar = Date.now();
+            iniciarCronometro(timestampTempoDecorrido);
+          }
+          // a linha abaixo é uma refatoração das linhas comentadas acima
+          rodando = !rodando;
+        }
+
+        function resetar() {
+          rodando = false;
+          timestampClickPausar = 0;
+          timestampClickIniciar = 0;
+          timestampTempoDecorrido = 0;
+          clearInterval(intervalo);
+          $cronometro.value = "";
+        }
+      })();
+    </script>
+  </body>
+</html>

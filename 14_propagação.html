@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container"> 
+      <h1>Curso JavaScript Básico</h1>
+      <button id="btn1">Botão 1</button>
+    </div>
+
+    <div class="container">
+      <h1>Propagação de eventos</h1>
+
+      <div id="d1" style="background-color: red; padding: 25px;">
+        texto dentro da div
+        <span style="background-color: yellow;">texto dentro da span</span>
+      </div>      
+    </div>
+
+    <script>
+    // propagação é a capacidade dos eventos de percorrerem a estrutura do HTML, desde o elemento original até o nível mais alto
+      btn1.addEventListener("click", function() {
+        alert("Clicou!");
+      });
+      btn1.addEventListener("click", function() {
+        alert("Clicou novamente!");
+      });
+
+      var $d1 = document.querySelector("#d1");
+      var $d1Span = document.querySelector("#d1 span");
+
+      $d1.addEventListener("click", function() {
+        console.log("Clicou no $d1");
+      });
+      $d1Span.addEventListener("click", function() {
+        console.log("Clicou no $d1Span");
+      });
+      document.addEventListener("click", function() {
+        console.log("Clicou no document");
+      });
+    /* para inverter a ordem de propagação do evento, basta adicionar um terceiro parâmetro (o booleano true)
+    exemplo:
+    document.addEventListener("click", function () {
+      console.log("Clicou no document");
+    }, true); 
+    onde se vê true, no modo padrão é false e nem precisa ser dito, por isso ele não está nos exemplos acima */
+    </script>
+  </body>
+</html>

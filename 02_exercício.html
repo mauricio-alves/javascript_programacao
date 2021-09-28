@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+  </body>
+
+  <script>
+    // criar uma função que calcule a média independente da quantidade de números 
+    (function() {
+      function calcularMedia() {
+        var media = 0;
+        var i = 0;
+
+        while(arguments[i]) {
+        media += arguments[i];
+        i++;
+        }
+        console.log("A média é: ", (media / arguments.length));
+      }
+      calcularMedia(3, 4, 5, 6, 8);
+    })()
+  </script>
+</html>

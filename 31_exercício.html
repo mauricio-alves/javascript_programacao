@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <script>
+      // Desafio: fazer uma página que mostra quantos dias faltam para o seu próximo aniversário ou mostra mensagem de parabéns
+
+      (function() {
+        var dataAtual = new Date();
+        dataAtual.setHours(0);
+        dataAtual.setMinutes(0);
+        dataAtual.setSeconds(0);
+        dataAtual.setMilliseconds(0);
+        var anoAtual = dataAtual.getFullYear();
+        var dataNiver = new Date(anoAtual, 01, 08);
+
+        // TS = time stamp (is the number of milliseconds that have passed since January 1, 1970)
+        var dataAtualTS = dataAtual.getTime();
+        var dataNiverTS = dataNiver.getTime();
+
+        if(dataNiverTS === dataAtualTS) {
+          alert("Parabéns pelo seu aniversário!");
+          return;
+        }
+
+        if(dataNiverTS < dataAtualTS) {
+          dataNiver.setFullYear(++anoAtual);
+          dataNiverTS = dataNiver.getTime();
+        }
+        // quando se tem valores que nunca mudam (constantes), o padrão é deixar tudo maiúsculo e ao invés de usar var usa-se const
+        const UM_DIA_TS = 24 * 60 * 60 * 1000;
+        var diferenca = dataNiverTS - dataAtualTS;
+        alert("Faltam " + diferenca / UM_DIA_TS + " dias para o seu aniversário");
+      })()
+    </script>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+  </body>
+</html>

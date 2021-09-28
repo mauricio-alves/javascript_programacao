@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <script>
+      // BOM = Browser Object Model
+      // Anterior ao DOM, é uma maneira pra interagir com o browser em si (window).
+
+      innerHeight // retorna a altura interna do browser (varia de acordo com o tamanho da janela)
+
+      innerWidth // retorna a largura interna disponível do browser (varia de acordo com o tamanho da janela, diminui se o devtolls estiver aberto por exemplo)
+
+      outerHeight // retorna a altura externa do browser (varia de acordo com o tamanho da janela), o que inclui a url, barra de favoritos, etc...
+
+      outerWidth // retorna a largura externa disponível do browser (varia de acordo com o tamanho da janela, mas não diminui com o devtolls aberto, ele soma tudo)
+
+      opener //
+
+      pageXOffset // retorna o quanto foi scrollado pela barra de rolagem no eixo X (horizontal)
+
+      pageYOffset // retorna o quanto foi scrollado pela barra de rolagem no eixo y (vertical)
+
+      screenX // retorna a posição da janela do browser em relação ao monitor no eixo x (horizontal)
+
+      screenY // retorna a posição da janela do browser em relação ao monitor no eixo y (vertical)
+
+
+      // OBJETO History
+
+      history.length // retorna a quantidade de páginas visitadas pelo browser
+
+      history.go() // retorna para a página indicada por número dentro dos () (exemplo history.go(-1)) 
+
+      history.back() // retorna uma página para trás no histórico
+
+      history.forward() // retorna uma página para frente no histórico
+
+      // OBJETO Location
+
+      location // retorna informação da url que está sendo visualizada no browser
+
+      location.href // retorna a url que está sendo navegada
+
+      location.protocol // retorna o servidor onde está sendo navegado (ex: http, https, file...)
+
+      location.reload() // retorna um refresh na página
+
+      location.assign("url") // retorna navegando pela url informada dentro dos ();
+
+      location.replace("url") // similar ao location.assign("url"), porém não adiciona a nova página navegada ao histórico, mas sim substitui a nova pela anterior, mantendo o mesmo número em history.length
+
+      // OBJETO Navigator
+
+      navigator // fornece dicas do browser, do OS, a lista de plugins disponíveis, os mimeTypes(tipos de arquivos) aceitos e informações referentes ao ambiente de hospedagem.
+
+      navigator.userAgent // a mais usada, serve para identificar de onde vem a requisição para acessar sua página
+
+      navigator.plugins // retorna a lista de plugins habilitados no navegador
+
+      navigator.cookieEnabled // para saber se os cookies estão habilitados
+
+      // OBJETO Screen
+      screen // Similar as propriedades do início desse estudo, porém referente ao monitor do usuário e não ao browser.
+
+      screen.availHeight // retorna a altura disponível no monitor
+
+      screen.availWidth // retorna a largura disponível no monitor
+
+
+      // BOM Métodos
+
+      window.open("url") // abre a url informada em outra aba 
+
+      window.open("url", "nome da janela", width=600, height=300) // abre a url em outra janela com as configurações informadas
+
+      window.close() // serve pra fechar a janela, mas só funcionará se for uma janela aberta pelo método open()
+
+      scrollTo(x, y) // vai scrollar a página até a posição determinada pelos parâmetros nos (x, y), sendo x eixo horizontal e y eixo vertical (só scrolla uma vez por número informado)
+
+      scrollBy(dx, dy) // similar ao scrollTo(x, y), porém pode scrollar várias vezes com o mesmo parâmetro, ele vai somando.
+
+      print() // manda imnprimir a página 
+    </script>
+  </body>
+</html>

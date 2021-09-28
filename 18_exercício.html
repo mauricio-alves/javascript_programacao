@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Curso JavaScript Básico</h1>
+
+      <textarea id="msg"></textarea>
+    </div>
+
+    <script>
+      (function() {
+        "use strict"
+        var $txtMsg = document.getElementById("msg");
+        // abaixo 3 formas diferentes de acessar o digitado pelo usuário no teclado
+        // geralmente usa-se o "keyup"
+        $txtMsg.addEventListener("keypress", keypress);
+        $txtMsg.addEventListener("keyup", keyup);
+        $txtMsg.addEventListener("keydown", keydown);
+        $txtMsg.addEventListener("input", input);
+
+        function keypress(e) {
+          console.log("keypress ", this.value);
+        }
+        function keyup(e) {
+          console.log("keyup ", this.value);
+        }
+        function keydown(e) {
+          console.log("keydown ", this.value);
+        }
+        // o ideal é usar o evento input abaixo, pois os acima só registram digitação de teclas de caracteres, não registra teclas de atalhos como ctrl ou shift, nem se for algo copiado e colado com o mouse por exemplo
+        function input(e) {
+          console.log("input ", this.value);
+        }
+      })()
+    </script>
+  </body>
+</html>

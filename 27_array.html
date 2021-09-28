@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <script>
+      // Métodos de Array
+      var arr = ["1", 20, 3, 4, 5, "kljalksd", 20, "30"];
+      
+      // every serve pra verificar se algo (todos) é true or false (booleano)
+      var sohNumeros = arr.every(function(elemento) {
+        return typeof elemento === "number";        
+      });
+      console.log(sohNumeros);
+
+      // some serve pra verificar se algo (ao menos um) é true or false (booleano)
+      var aoMenosUmNumero = arr.some(function(elemento) {
+        return typeof elemento === "number";        
+      });
+      console.log(sohNumeros);
+
+      // filter vai retornar somente os itens da array que satisfazem a condição exigida
+      // indice e objeto(ou arr) é facultativo, usa somente se precisar
+      var numeros = arr.filter(function(elemento, indice, objeto) {
+        return typeof elemento === "number";
+      });
+      console.log(numeros);
+
+      // forEach, muito utilizado, serve pra fazer loops em cima de um array sem precisar utilizar o loop for, while ou do while. A cada indice do meu array eu executo uma função.
+      arr.forEach(function(elemento, indice, objeto) {
+        console.log("el=", elemento, " | i=", indice, " | i - ", objeto.toString());
+      });
+
+      // indexOf vai me retornar a posição de uma string dentro de uma array
+      var posicaoStr1 = arr.indexOf(20);
+      console.log("posicaoStr1", posicaoStr1);
+
+      // lastIndexOf vai me retornar a última posição de uma string dentro de uma array
+      var posicaoStr2 = arr.lastIndexOf(20);
+      console.log("posicaoStr2", posicaoStr2);  
+      
+      // map = mapeia a array e realiza uma função em cada um dos elementos e os retorna para a mesma posição
+      numeros = numeros.map(function(elemento, indice, objeto) {
+        return elemento * indice;
+      });
+      console.log(numeros);
+
+      // concat = vai concatenar array com array ou com valores separados por vírgula
+      var arr2 = arr.concat(numeros, "olá", "arr2", 100);
+      console.log(arr2);
+
+      // join = vai transformar uma array em string com vírgulas (é o mesmo que usar "toString"), a diferença é que com join eu posso adicionar um caracter separador(ex: join(" -- "), que vai substituir as vírgulas padrão)
+      var str = arr2.join();
+      console.log(str);
+
+      //push = método mais utilizado, serve para acrescentar um ou mais elementos num array (método destrutivo, ou seja, modifica a array original)
+      arr.push("novo", "item");
+      console.log(arr);
+
+      // pop = remove o último elemento da array e o armazena em quem o chamou (método destrutivo, ou seja, modifica a array original)
+      var ultimoItem = arr.pop();
+      console.log(ultimoItem);
+      console.log(arr);
+
+      // shift = parecido com o pop, porém remove o primeiro elemento da array e o armazena em quem o chamou (método destrutivo, ou seja, modifica a array original)
+      var primeiroItem = arr.shift();
+      console.log(primeiroItem);
+      console.log(arr);
+
+      // unshift = parecido com o push, porém acrescenta um elemento no início de uma array (método destrutivo, ou seja, modifica a array original)
+      arr.unshift("true", false);
+      console.log(arr);
+
+      // reduce realiza uma função numa array e retorna um valor, é uma opção mais elegante para não usar loops como for, while ou for each
+      var somaDeArr = numeros.reduce(function(anterior, atual, indice) {
+        console.log("anterior", anterior, " | atual", atual, " | indice", indice)
+        return anterior + atual + indice;
+      });
+      console.log(numeros);
+      console.log(somaDeArr);
+
+      // reduce com strings (ele concatena, já que não são numeros)
+      var testeReduce = ["1", "2", "3"].reduce(function(i, a) {
+        return i + a;
+      });
+      console.log(testeReduce);
+
+      // reverse = inverte a ordem dos elementos (método destrutivo, ou seja, modifica a array original)
+      var arr = [10, 20, 30];
+      arr.reverse();
+      console.log(arr);
+
+      // slice = retorna uma array cortando os elementos até a posição informada (não modifica a array original)
+      console.log(arr2);
+      console.log(arr2.slice(4));
+      // ao inserir um segundo parâmetro, informa em qual posição deve encerrar essa ação:
+      console.log(arr2.slice(4, 8));
+
+      // splice = bastante flexível, com ele se pode incluir elemento, tirar elemento, incluir elemento no meio de uma array...
+      // 1º parâmetro indica a posição inicial da ação desejada
+      // 2º parâmetro indica quantos elementos quero excluir na array
+      // 3º parâmetro em diante indica o elemento que quero incluir na array
+      arr2.splice(2, 0, "limao", "melao");
+      console.log(arr2);
+      // ele retorna os itens excluídos
+    </script>
+  </body>
+</html>

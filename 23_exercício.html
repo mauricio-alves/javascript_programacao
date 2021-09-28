@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <script>
+      // desafio: return "Morales, Daniel Tapias";
+      var nome = "Daniel Tapias Morales";
+      var nomeFormatado = FormatarNome(nome);
+
+      function FormatarNome(nome) {
+        var posicaoUltimoEspaco = nome.lastIndexOf(" ");
+        if(posicaoUltimoEspaco <= 0) {
+          return nome;
+        }
+
+        var ultimoNome = nome.slice(posicaoUltimoEspaco + 1);
+        console.log("ultimoNome", ultimoNome);
+
+        var primeiroNome = nome.slice(0, posicaoUltimoEspaco);
+        console.log("posicaoUltimoEspaco", posicaoUltimoEspaco);
+
+        return ultimoNome + ", " + primeiroNome;
+      }
+      console.log(nomeFormatado);
+    </script>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+    <input type="text" id="txtNome" value="Digite o Nome">
+
+  <script>
+    // o uso do $ é uma prática pra indicar que essa var é um elemento do DOM, significa que estou atribuindo a essa var uma referência do DOM (nesse caso o input lá em cima, o txtNome)
+    var $txt = document.querySelector("#txtNome");
+    var nome = "Mauricio";
+    var sobrenome = "Oliveira Alves";
+
+    document.querySelector("#txtNome").value = nome + " " + sobrenome;
+    document.querySelector("#txtNome").readOnly = true;
+  </script>    
+  </body>
+</html>

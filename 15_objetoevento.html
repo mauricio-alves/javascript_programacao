@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container"> 
+      <h1>Curso JavaScript Básico</h1>
+      <button id="btn1">Botão 1</button>
+    </div>
+
+    <div class="container">
+      <h1>Propagação de eventos</h1>
+
+      <div id="d1" style="background-color: red; padding: 25px;">
+        texto dentro da div
+        <span style="background-color: yellow;">texto dentro da span</span>
+      </div>      
+    </div>
+
+    <script>
+    // com o objeto evento eu consigo ter acesso a várias informações adicionais sobre o evento em si, inclusive parar a propagação 
+      btn1.addEventListener("click", function() {
+        alert("Clicou!");
+      });
+      btn1.addEventListener("click", function() {
+        alert("Clicou novamente!");
+      });
+
+      var $d1 = document.querySelector("#d1");
+      var $d1Span = document.querySelector("#d1 span");
+      // objeto evento adicionado na function abaixo "e"
+      $d1.addEventListener("click", function(e) {
+        console.log("Clicou no $d1");
+        e.stopPropagation(); //aqui para a propagação do evento
+      });
+      $d1Span.addEventListener("click", function() {
+        console.log("Clicou no $d1Span");
+      });
+      // abaixo exemplos de informações adicionais do evento que posso acessar através do objeto evento "evt"
+      document.addEventListener("click", function(evt) {
+        console.log("Clicou no document");
+        console.log(evt.currentTarget);
+        console.log(this);
+        console.log(evt.target);
+      });
+    </script>
+  </body>
+</html>

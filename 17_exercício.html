@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Curso JavaScript Básico</h1>
+      
+      <form action="#" method="POST">
+        <label for="txtuser">Usuário</label>
+        <input type="text" id="txtUser" name="user"><br>
+        <label for="txtPass">Senha</label>
+        <input type="password" id="txtPass" name="pass"><br>
+        <button type="submit" id="btn">Enviar</button>
+      </form>
+    </div>
+
+    <script>
+      // Validar formulário de login no submit do form
+      (function() {
+        "use strict";
+        var $form = document.querySelector("form");
+        var $txtUser = document.getElementById("txtUser");
+        var $txtPass = document.getElementById("txtPass");
+        var $btn = document.getElementById("btn");
+
+        // usando objeto evento abaixo ("e") para poder usar o e.preventDefault e assim evitar o envio de form vazio (que é o default)
+        $form.addEventListener("submit", function(e) {
+          if(!$txtUser.value || !$txtPass.value) {  
+            alert("Preencha todos os campos");
+            e.preventDefault();
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>

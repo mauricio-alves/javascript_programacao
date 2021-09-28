@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <script>
+    // desafio: selecionar todos os parágrafos de uma página e, se o texto tiver mais de 10 palavras, mostrar as primeiras 10 seguidas de "..."
+      (function() {
+        window.addEventListener("load", init);
+        // a linha acima faz o JS aguardar carregar toda a página antes de agir, o que evita bugs
+        function init() {
+          var $paragrafos = document.querySelectorAll("p");
+
+          for(var i = 0; i < $paragrafos.length; i++) {
+            $paragrafos[i].innerHTML = formataParagrafo($paragrafos[i].innerHTML);
+          }
+          function formataParagrafo(texto) {
+            var arr = texto.split(" ")
+            if(arr.length > 10) {
+              return arr.slice(0, 10).join(" ") + "...";
+            }
+            return texto;
+          }
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eligendi in, consequuntur architecto recusandae soluta, delectus nam autem maxime beatae aliquam minima blanditiis esse optio molestias enim ad, neque dicta?</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea pariatur voluptatum mollitia ab dignissimos labore vitae ipsa modi porro aliquid. Nulla ratione temporibus in autem praesentium adipisci molestiae ducimus asperiores.</p>
+
+    <p>Lorem, ipsum dolor sit.</p>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <style>
+      body {
+        padding-top: 150px;
+      }
+
+      .menu {
+        height: 150px;
+        background-color: red;
+        width: 100%;
+        transition: all 1s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: .6;
+      }
+
+      .fx .menu {
+        height: 50px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <div class="menu"></div>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora odio rerum expedita facere labore iure nesciunt minima nisi vero. Placeat aliquid libero maxime aut impedit quidem sint nostrum, recusandae eius?</p>
+    <script>
+      // Mudar a configuração do menu principal se a página tiver um scroll maior do que a altura do próprio menu
+
+      (function() {
+        var $menu = document.querySelector(".menu");
+        window.addEventListener("scroll", setupNav);
+
+        function setupNav() {
+          var positionYScroll = getYscroll();
+
+          if(positionYScroll > 100 && !hasClassFx()) {
+            // console.log("adiciona");
+            document.body.classList.add("fx");
+          } 
+          if(positionYScroll <= 100 && hasClassFx()) {
+            // console.log("remove");
+            document.body.classList.remove("fx");
+          }
+        }
+        function getYscroll() {
+          return window.pageYOffset;
+        }
+        function hasClassFx() {
+          return !!document.querySelector(".fx");
+        }
+      })()
+    </script>
+  </body>
+</html>

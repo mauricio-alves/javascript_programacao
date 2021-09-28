@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, distinctio numquam. Aliquid tempore quasi expedita at, soluta sapiente eligendi repellendus? Nesciunt doloribus quibusdam corporis consectetur temporibus blanditiis, nisi laborum quasi.</p>
+
+    <img src="../Web Design/rwd-imagens/1280.jpg" alt="Rio de Janeiro">
+
+    <script>
+      // exemplo de eventos no BOM
+
+      // toda vez q recarregar a página dispara o evento load
+      window.addEventListener("load", function() {
+        console.log("load disparado");
+      });
+
+      // evento que acontece antes do load, assim que a estrutura do HTML estiver carregada (o load necessita aguardar o carregamento de imagens, vídeos... antes de disparar)
+      window.addEventListener("DOMContentLoaded", function() {
+        console.log("DOMContentLoaded");
+      });
+
+      // toda vez q alterar o tamanho da janela dispara o evento resize
+      window.addEventListener("resize", function(e) {
+        console.log("resize disparado");
+        console.log(e);
+      });
+
+      // toda vez q scrollar a página dispara o evento scroll
+      window.addEventListener("scroll", function(e) {
+        console.log("scroll disparado");
+        console.log(e);
+        console.log("scroll Y", pageYOffset);
+      });
+
+      // dispara quando o navegador é fechado
+      window.addEventListener("unload", function() {
+        console.log("unload disparado");
+      });
+
+      // dispara antes do navegador ser fechado
+      window.addEventListener("beforeunload", function() {
+        console.log("beforeunload disparado");
+      });
+    </script>
+  </body>
+</html>

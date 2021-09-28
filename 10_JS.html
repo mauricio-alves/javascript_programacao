@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <script>
+      // Objetos construtores
+      // função que se inicia com letra maiúscula é amplamaente utilizada para dizer que é do tipo construtora
+      (function(window) { //IIFE
+        "use strict" //IIFE
+        window.Caneta = function(preco, cor) { //forçando escopo global pra não dar erro
+          //escopo local  
+          var color = cor || "black";
+          // escopo global   porém utilizando IIFE, asseguro tudo no local
+          this.preco = preco || 1;
+          this.mudarCor = function(cor) {
+            // assim impede que atribuam cores diferentes das que eu pré-determinei como opções
+            if (cor !== "red" && cor !== "blue" && cor !== "black") {
+              return;
+            }
+            color = cor;
+          }
+          this.pegaCor = function() {
+            return color;
+          }
+        }
+        var caneta1 = new Caneta(2, "red");
+      })(window)
+    </script>
+  </body>
+</html>

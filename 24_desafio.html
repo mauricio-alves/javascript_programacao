@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+
+    <script>
+      // desafio: selecionar todos os parágrafos de uma página e, se o texto tiver mais de 200 caracteres, mostrar os primeiros 200 seguidos de "..."
+      (function() {
+        window.addEventListener("load", init);
+        // a linha acima faz o JS aguardar carregar toda a página antes de agir, o que evita bugs
+        function init() {
+          var $paragrafos = document.querySelectorAll("p");
+
+          var i = 0;
+          while($paragrafos[i]) {
+            $paragrafos[i].innerHTML = formatarTexto($paragrafos[i].innerHTML);
+            i++;
+          }
+        }
+        function formatarTexto(texto) {
+          var numeroMaximoCaracteres = 200;
+          if(texto.length <= numeroMaximoCaracteres) {
+            return texto;
+          }            
+          var subTexto = texto.slice(0, numeroMaximoCaracteres);
+          return subTexto + "...";
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, fugit harum? Autem facere, recusandae quia delectus laboriosam iste eius necessitatibus? Error deleniti eveniet impedit eos voluptatem nemo. Aperiam, maxime!</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, sapiente reiciendis rem, cumque aliquid ex nostrum delectus ducimus corrupti porro repellat doloribus! Labore atque excepturi consequatur! Eaque molestiae exercitationem expedita?</p>
+
+    <p>Lorem ipsum, dolor sit adipisicing elit.</p>
+  </body>
+</html>

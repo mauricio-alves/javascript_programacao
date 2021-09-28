@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+    <div id="msg"></div>
+
+  <script>
+    // para adicionar negrito no DOM (trocar textContent para innerHTML)
+    // textContent é texto puro, não altera para negrito
+    // innerHTML mostra na página as propriedades HTML
+    (function() {
+    var usuario = prompt("Qual seu nome?");
+    document.querySelector("#msg").innerHTML = "Bem vindo, <b>" + usuario + " </b>!";
+    })()
+  </script>    
+  </body>
+</html>

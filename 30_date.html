@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+  </body>
+
+  <script>
+    // Métodos Date
+    var minhaData = new Date();
+
+    // dia da semana (de 0 a 6)
+    minhaData.getDay()
+
+    // dia do mês
+    minhaData.getDate()
+
+    // mês do ano (de 0 a 11)
+    minhaData.getMonth()
+
+    // é o número de anos de 1900 até agora (ex: 121)
+    minhaData.getYear()
+
+    // ano atual em modo padrão (ex: 2021)
+    minhaData.getFullYear()
+
+    // hora no momento em que chamou a função
+    minhaData.getHours()
+
+    // minuto no momento em que chamou a função
+    minhaData.getMinutes()
+
+    // segundo no momento em que chamou a função
+    minhaData.getSeconds()
+
+    // é o número de milisegundos de 01 de janeiro de 1970 até agora
+    minhaData.getTime()
+
+    // ao usar set, vc informa parâmetros
+    // vai setar em 31 de dezembro de 1969 as 22:00hrs GMT -02:00hr
+    minhaData.setTime(0)
+
+    // vai setar em 23 de fevereiro de 1970 as 22:00hrs GMT -02:00hr
+    minhaData.setDate(23)
+    minhaData.setMonth(1)
+    minhaData.setYear(1970)
+
+    // vai setar em 23 de fevereiro de 1970 as 00:00hrs GMT -02:00hr
+    minhaData.setHours(0)
+    minhaData.setMinutes(0)
+    minhaData.setMilliseconds(0)
+
+    // vai retornar em 23 de maio de 2021
+    minhaData = new Date(2021, 04, 23)
+
+    // vai retornar 23/05/2021 23:18:30:500 hrs
+    minhaData = new Date(2021, 04, 23, 23, 18, 30, 500)
+
+    // vai retornar a string convertida na data (nesse caso mês vai de 1 a 12), não é recomendado usar pois pode ser interpretado de formas diferentes por outros browsers
+    minhaData = new Date("2021/05/23")
+  </script>
+</html>

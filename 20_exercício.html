@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Curso JavaScript Básico</h1>
+
+      <form action="#">
+
+        <textarea cols="50" rows="10" readonly>Contrato de Serviço prestado
+        </textarea>
+        <br>
+        <label>
+          <input id="chk" type="checkbox" checked>Li e aceito os termos deste contrato
+        </label>
+        <br>
+        <input id="btn" type="submit" value="Continuar">
+      </form>
+    </div>
+
+    <script>
+      // impedir envio de formulário sem aceitar os termos do contrato
+      (function() {
+        "use strict"
+        var $btn = document.getElementById("btn");
+        var $chk = document.getElementById("chk");
+
+        toggleBtn();
+
+        $chk.addEventListener("change", function() {
+          /*if(this.checked) {
+            $btn.disabled = false;
+          } else {
+            $btn.disabled = true;
+          }*/
+          // todo o if acima pode ser substituído pela linha abaixo
+          toggleBtn();
+        });        
+        function toggleBtn() {
+          $btn.disabled = !$chk.checked;
+        }
+      })()
+    </script>
+  </body>
+</html>

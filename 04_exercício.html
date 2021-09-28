@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+    <div id="msg"></div>
+
+  <script>
+    (function() {
+    var usuario = prompt("Qual seu nome?");
+    document.querySelector("#msg").textContent = "Bem vindo, " + usuario + " !";
+    // se quiser usar o getElementById lembrar de não usar #
+    // document.getElementById("msg").textContent = "Bem vindo, " + usuario + " !"; 
+    // textContent serve pra inserir texto no DOM (Document Object Model)
+    })()
+  </script>    
+  </body>
+</html>

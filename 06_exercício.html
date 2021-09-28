@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+    <input type="text" id="txtNome" value="Digite o Nome">
+    <button onclick="escreve()">Clique Aqui</button>
+    <div id="msg"></div>
+
+  <script>
+    // usa textContent quando tem textos dentro de tags.
+    // usa innerHTML quando tem tags HTML dentro do elemento que estou buscando.
+    // usa value quando estou buscando informação que está num elemento HTML em formulários.
+    (function() {
+    txtNome = document.querySelector("#txtNome");
+    var nome = txtNome.value;
+    document.querySelector("#msg").innerHTML = "Bem vindo, <b>" + nome + " </b>!";
+    })()
+    // para acessar no window o conteúdo da IIFE acima, retira o prefixo var de "var txtNome"
+
+
+    // o código final dentro da tag script é apenas o abaixo:
+    var txtNome = document.querySelector("#txtNome");
+
+    function escreve() {
+      var nome = txtNome.value;
+      document.querySelector("#msg").innerHTML = "Bem vindo, <b>" + nome + " </b>!";
+    }
+  </script>    
+  </body>
+</html>

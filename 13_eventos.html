@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <div class="container"> 
+      <h1>Curso JavaScript Básico</h1>
+      <button id="btn1">Botão 1</button>
+    </div>
+
+    <script>
+    // exemplos de DOM level 2 (addEventListener), a vantagem é poder atrelar mais de um evento ao mesmo elemento HTML (neste caso, o botão)
+    btn1.addEventListener("click", function() {
+      alert("Clicou!");
+    });
+    btn1.addEventListener("click", function() {
+      alert("Clicou novamente!");
+    });
+    </script>
+  </body>
+</html>

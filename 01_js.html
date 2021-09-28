@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript Básico</title>
+  </head>
+  <body>
+    <h1>Curso JavaScript Básico</h1>
+  </body>
+
+  <script>
+    //função literal (dar nome a função)
+    function somar(n1, n2) {
+      //corpo da função
+      return n1 + n2;
+    }
+
+    var soma = somar(10, 20);
+    console.log("Resultado: ", soma);
+
+    somar.teste = "Propriedade da função";
+    console.log(somar.teste);
+
+    // (sem nome a função) ao atrelar função a uma variável
+    var teste = function(str) {
+      console.log("teste", str)
+    }; // função em variável precisa do ";" no final
+
+    teste("Olá");  
+
+
+    console.log("---------");
+
+    var x = 0; //escopo global
+    var y;
+
+    function mostraX() {
+      var x = 10; //escopo local (com a palavra var)
+      y = 20; //escopo global (sem a palavra var)
+      console.log("Mostra X dentro: ", x);
+      console.log("Mostra Y dentro: ", y);
+    }
+    mostraX();
+
+    console.log("Mostra X fora: ", x);
+    console.log("Mostra Y fora: ", y);
+
+    //IFEE = função auto invocável
+    // função usada para desenvolvimento no browser
+    // serve para evitar conflitos de variáveis de escopo global com o msm nome (envolve function em () e outro () no final)
+    (function() {
+      var isValid = false;
+    })();
+
+    //IIFE (outra boa prática é adicionar "use strict", pois ao retirar o prefixo VAR o escopo muda pra global, com o "use strict" o força a permanecer local)
+    (function() {
+      "use strict";
+      isValid = false;
+      console.log(isValid);
+
+    // propriedade arguments, dentro de uma função, representa todos os valores que foram passados por parâmetros
+    function somar(arr) {
+      console.log(arguments);
+      var result = 0;
+      var x = 0;
+
+      while(arguments[x]) {
+        result += arguments[x];
+        x++;
+      }
+      console.log("Resultado: ", result);
+    }
+    somar(20, 30, 20, 15);
+    })();
+  </script>
+</html>
